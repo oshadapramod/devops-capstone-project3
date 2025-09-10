@@ -86,6 +86,15 @@ class TestAccountService(TestCase):
         data = resp.get_json()
         self.assertEqual(data["status"], "OK")
 
+        def test_info_endpoint(self):
+            """It should return service info"""
+            resp = self.client.get("/info")
+            self.assertEqual(resp.status_code, 200)
+            data = resp.get_json()
+            self.assertEqual(data["service"], "Account")
+            self.assertEqual(data["description"], "Handles account lifecycle")
+            self.assertEqual(data["version"], "1.0")
+
     def test_create_account(self):
         """It should Create a new Account"""
         account = AccountFactory()

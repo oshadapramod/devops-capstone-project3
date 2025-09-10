@@ -19,6 +19,19 @@ def health():
     return jsonify(dict(status="OK")), status.HTTP_200_OK
 
 
+############################################################
+# Info Endpoint
+############################################################
+@app.route("/info")
+def info():
+    """Service Info"""
+    return jsonify({
+        "service": "Account",
+        "description": "Handles account lifecycle",
+        "version": "1.0"
+    }), status.HTTP_200_OK
+
+
 ######################################################################
 # GET INDEX
 ######################################################################
