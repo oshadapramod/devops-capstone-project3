@@ -25,6 +25,7 @@ def health():
 @app.route("/info")
 def info():
     """Service Info"""
+    return jsonify({
         "service": "Account",
         "description": "Handles account lifecycle",
         "version": "1.0"
